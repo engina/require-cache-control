@@ -1,0 +1,28 @@
+{
+  "name": "require-cache-control",
+  "version": "0.1.0",
+  "description": "Control require cache, take snapshots and restore. Useful when testing code.",
+  "main": "index.js",
+  "scripts": {
+    "test": "node_modules/istanbul/lib/cli.js cover -x 'spec/**/*' node_modules/tape/bin/tape -- spec/*Spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/engina/require-cache-control"
+  },
+  "keywords": [
+    "require",
+    "cache",
+    "control",
+    "snapshot",
+    "restore"
+  ],
+  "author": "Engin Aydogan <engin@bzzzt.biz>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^3.4.0",
+    "eslint-config-google": "^0.6.0",
+    "istanbul": "^0.4.5",
+    "tape": "^4.6.0"
+  }
+}
