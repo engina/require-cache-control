@@ -20,7 +20,7 @@ npm install require-cache-control
 ```javascript
 const rcc = require('require-cache-control');
 rcc.snapshot();
-t.equal(require('./fixtures/a')(), 0); // a loads b
+t.equal(require('./fixtures/a')(), 0); // a requires('./b')
 t.equal(require('./fixtures/a')(), 1); // a increments variable of b
 t.equal(require('./fixtures/a')(), 2); // a increments variable of b again.
 rcc.restore(); // all cache cleared
