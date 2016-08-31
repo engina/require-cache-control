@@ -7,7 +7,7 @@ Let's you take a snapshot of the current require cache and restore it at will. T
 
 Imagine you have a gulp process running and your testing plugin uses require() to test the files. After the first require, you won't be able to re-test your files because of the require cache.
 
-There's [require-uncached](https://github.com/sindresorhus/require-uncached) that loads *the* file you are requiring but doesn't take care of subsequent requires. For instance, if you requireUncached('./a) and it requires './b', 'b' will stay in cache in the subsequent requireUncached('./a') calls. 
+This is the case with [gulp-tape](https://github.com/yuanqing/gulp-tape), it uses [require-uncached](https://github.com/sindresorhus/require-uncached) to freshly load *the* the test files to work around this problem. The problem is require-uncached does not take care of subsequent requires. It only freshly loads the file that is given to it, if the file itself requires other files, they will be cached and won't be fresh.
 
 ## Install
 -------
@@ -29,5 +29,4 @@ rcc.restore();
 t.equal(require('./fixtures/a')(), 0); // a and b are both fresh
 rcc.restore();
 t.equal(require('./fixtures/a')(), 0); // a and b are both fresh
-t.end();
 ```
