@@ -1,14 +1,16 @@
 'use strict';
-let snapshot = [];
+var snapshot = [];
 
 module.exports.snapshot = function() {
   snapshot = Object.keys(require.cache);
 };
 
 module.exports.restore = function() {
-  let currentRequires = Object.keys(require.cache);
-  let diff = currentRequires.filter(r => snapshot.indexOf(r) === -1);
-  diff.forEach(d => {
-    delete require.cache[d];
+  var currentRequires = Object.keys(require.cache);
+  var diff = currentRequires.filter(function(r) {
+    return snapshot.indexOf(r) === -1;
+  });
+  diff.forEach(function(diff) {
+    delete require.cache[diff];
   });
 };

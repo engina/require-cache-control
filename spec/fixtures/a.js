@@ -1,3 +1,6 @@
 const b = require('./b');
 
-module.exports = () => b.counter++;
+module.exports = function() {
+  return b.counter++;
+};
+
