@@ -1,7 +1,7 @@
 # require-cache-control
 
-[![Build status](https://img.shields.io/travis/engina/require-cache-control.svg?style=flat-square)](https://travis-ci.org/request/request)
-[![Coverage](https://img.shields.io/codecov/c/github/engina/require-cache-control.svg?style=flat-square)](https://codecov.io/github/request/request?branch=master)
+[![Build status](https://img.shields.io/travis/engina/require-cache-control.svg?style=flat-square)](https://travis-ci.org/engina/require-cache-control)
+[![Coverage](https://img.shields.io/codecov/c/github/engina/require-cache-control.svg?style=flat-square)](https://codecov.io/github/engina/require-cache-control)
 
 Let's you take a snapshot of the current require cache and restore it at will. This is useful if you want to test some files repeatadly in a single process.
 
@@ -19,14 +19,14 @@ npm install require-cache-control
 -----
 ```javascript
 const rcc = require('require-cache-control');
-rcc.snapshot();
-t.equal(require('./fixtures/a')(), 0); // a requires('./b')
-t.equal(require('./fixtures/a')(), 1); // a increments variable of b
-t.equal(require('./fixtures/a')(), 2); // a increments variable of b again.
-rcc.restore(); // all cache cleared
-t.equal(require('./fixtures/a')(), 0); // a and b are both fresh
-rcc.restore();
-t.equal(require('./fixtures/a')(), 0); // a and b are both fresh
-rcc.restore();
-t.equal(require('./fixtures/a')(), 0); // a and b are both fresh
+
+// Assuming `tests` is a collection containing file names
+for (let test of tests) {
+  // Capture the state of the require cache§
+  rcc.snapshot();
+  require(test);
+  // Restore to the captured state
+  // `test` itself and all the require()s made by it will be removed from cache
+  rcc.restore(); 
+}
 ```
