@@ -1,6 +1,6 @@
 {
   "name": "require-cache-control",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Control require cache, take snapshots and restore. Useful when testing code.",
   "main": "index.js",
   "scripts": {
