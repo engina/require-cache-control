@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "github.com/engina/require-cache-control"
+    "url": "git+https://github.com/engina/require-cache-control.git"
   },
   "keywords": [
     "require",
@@ -17,8 +17,15 @@
     "snapshot",
     "restore"
   ],
+  "engines": {
+    "node": ">= 0.10.0"
+  },
   "author": "Engin Aydogan <engin@bzzzt.biz>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/engina/require-cache-control/issues"
+  },
+  "homepage": "https://github.com/engina/require-cache-control#readme",
   "devDependencies": {
     "eslint": "^3.4.0",
     "eslint-config-google": "^0.6.0",
