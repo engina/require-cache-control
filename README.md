@@ -23,10 +23,10 @@ const rcc = require('require-cache-control');
 // Assuming `tests` is a collection containing file names
 for (let test of tests) {
   // Capture the state of the require cache§
-  rcc.snapshot();
+  let snapshot = rcc.snapshot();
   require(test);
   // Restore to the captured state
   // `test` itself and all the require()s made by it will be removed from cache
-  rcc.restore(); 
+  rcc.restore(snapshot); 
 }
 ```
